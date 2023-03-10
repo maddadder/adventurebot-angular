@@ -34,7 +34,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## API Setup
 1. This app assumes you followed all the steps in https://github.com/maddadder/adventurebot
 2. Once complete you can download the Open Api definition to src/AngularClient/OpenAPIs/
-3. To generate the client api run `npm run generateread`
+3. To generate the client read api run `npm run generateread`
+3. To generate the client readwrite api run `npm run generatereadwrite`
 
 ## Debugging
 

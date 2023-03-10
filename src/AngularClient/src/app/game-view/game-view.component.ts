@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, filter, map, retry } from 'rxjs/operators';
 import { gameEntry } from '../NSwagClientRead';
-import { GameEntryService } from '../NSwagClientRead/services/GameEntryService';
+import { GameEntryService as GameEntryReadWriteService } from '../NSwagClientReadWrite/services/GameEntryService';
 import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class GameViewComponent implements OnInit, OnDestroy {
   
   constructor(private _Activatedroute:ActivatedRoute,
     private _router:Router,
-    private readonly gameEntryService: GameEntryService) { }
+    private readonly gameEntryService: GameEntryReadWriteService) { }
   sub;
   _gameEntries: gameEntry[] = []
   pageName:string;

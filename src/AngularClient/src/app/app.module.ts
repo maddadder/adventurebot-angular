@@ -17,8 +17,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { MsalModule, MsalRedirectComponent, MsalGuard, MsalInterceptor } from '@azure/msal-angular'; // Import MsalInterceptor
 import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
 
-import { GameEntryService } from './NSwagClientRead/services/GameEntryService';
+import { GameEntryService as GameEntryReadService} from './NSwagClientRead/services/GameEntryService';
+import { GameEntryService as GameEntryReadWriteService } from './NSwagClientReadWrite/services/GameEntryService';
 import { GameViewComponent } from './game-view/game-view.component';
+import { environment } from './../environments/environment';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -41,9 +43,9 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     HttpClientModule,
     MsalModule.forRoot( new PublicClientApplication({
       auth: {
-        clientId: '0cd119e5-2fad-4aba-a39f-d04e3b26f4ae', // Application (client) ID from the app registration
-        authority: 'https://login.microsoftonline.com/46f630ab-810d-4f10-b533-6532e8afe44a', // The Azure cloud instance and the app's sign-in audience (tenant ID, common, organizations, or consumers)
-        redirectUri: 'https://maddadder.github.io/adventurebot-angular'// This is your redirect URI
+        clientId: environment.clientId, // Application (client) ID from the app registration
+        authority: environment.authority, // The Azure cloud instance and the app's sign-in audience (tenant ID, common, organizations, or consumers)
+        redirectUri: environment.apiUrl // This is your redirect URI
       },
       cache: {
         cacheLocation: 'localStorage',
@@ -68,7 +70,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       multi: true
     },
     MsalGuard,
-    GameEntryService
+    GameEntryReadService,
+    GameEntryReadWriteService
   ],
   bootstrap: [AppComponent, MsalRedirectComponent]
 })

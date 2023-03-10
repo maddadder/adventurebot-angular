@@ -13,7 +13,8 @@ const routes: Routes = [
   },
   {
     path: 'game-view/:id',
-    component: GameViewComponent
+    component: GameViewComponent,
+    canActivate: [MsalGuard]
   },
   {
     path: '',
