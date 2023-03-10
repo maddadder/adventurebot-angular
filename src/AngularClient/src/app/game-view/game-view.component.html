@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div *ngIf="_gameEntries">
+                <div *ngFor="let _gameEntry of _gameEntries">
+                    <ul style="margin:0px;padding:0px;">
+                        <li *ngFor="let desc of _gameEntry.description">{{desc}}</li>
+                    </ul>
+                    <br/>
+                    <b>Option(s):</b>
+                    <ul *ngIf="_gameEntry.options.length">
+                        <li *ngFor="let gameOption of _gameEntry.options">
+                            <a style="text-decoration:underline" href="game-view/{{gameOption.next}}" role="button">{{gameOption.description}}</a>
+                        </li>
+                    </ul>
+                    <ul *ngIf="!_gameEntry.options.length">
+                        <li>Game over. Click <a style="text-decoration:underline" href="game-view/begin">here</a> to start over.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

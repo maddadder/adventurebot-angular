@@ -1,0 +1,10 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.container { margin: 1%; }
+
+.mat-toolbar.mat-primary {
+    background: #2c3778;
+    color: #fff;
+}
