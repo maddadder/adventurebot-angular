@@ -1,17 +1,36 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <a class="title" href="">{{ title }}</a>
-
+  
   <div class="toolbar-spacer"></div>
-
-  <a mat-button [routerLink]="['game-view/begin']">Play Game</a>
-  <a mat-button [routerLink]="['profile']">Profile</a>
+  <button type="button" class="menu-button" mat-button (click)="sideNav.toggle()">
+    Nav
+  </button>
   
 
-  <button mat-raised-button *ngIf="!loginDisplay" (click)="login()">Login</button>
-  <button mat-raised-button *ngIf="loginDisplay" (click)="logout()">Logout</button>
-
 </mat-toolbar>
-<div class="container">
-  <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
-  <router-outlet *ngIf="!isIframe"></router-outlet>
-</div>
+  
+  <mat-sidenav-container>
+    <mat-sidenav class="mat-elevation-z8" #sideNav mode="side">
+      <button mat-button class="menu-button" [routerLink]="['game-view/begin']">
+          <span>Play Game</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="['profile']">
+          <span>Profile</span>
+      </button>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" *ngIf="!loginDisplay" (click)="login()">
+        <span>Login</span>
+      </button>
+      <button mat-button class="menu-button" *ngIf="loginDisplay" (click)="logout()">
+        <span>Logout</span>
+      </button>
+    </mat-sidenav>
+      <mat-sidenav-content>
+          <div class="content mat-elevation-z8">
+              <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
+              <router-outlet *ngIf="!isIframe"></router-outlet>
+          </div>
+      </mat-sidenav-content>
+  </mat-sidenav-container>

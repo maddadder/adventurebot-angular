@@ -3,18 +3,18 @@
         <div class="col-xs-12 col-md-12">
             <div *ngIf="_gameEntries">
                 <div *ngFor="let _gameEntry of _gameEntries">
-                    <ul style="margin:0px;padding:0px;">
+                    <ul style="margin:0px;padding:0px;list-style-type: none;">
                         <li *ngFor="let desc of _gameEntry.description">{{desc}}</li>
                     </ul>
                     <br/>
                     <b>Option(s):</b>
-                    <ul *ngIf="_gameEntry.options.length">
+                    <ul *ngIf="_gameEntry.options.length" style="list-style-type: none;">
                         <li *ngFor="let gameOption of _gameEntry.options">
-                            <a style="text-decoration:underline" href="game-view/{{gameOption.next}}" role="button">{{gameOption.description}}</a>
+                            <a style="text-decoration:underline;line-height: 50px;" href="game-view/{{gameOption.next}}" role="button">{{gameOption.description}}</a>
                         </li>
                     </ul>
-                    <ul *ngIf="!_gameEntry.options.length">
-                        <li>Game over. Click <a style="text-decoration:underline" href="game-view/begin">here</a> to start over.</li>
+                    <ul *ngIf="!_gameEntry.options.length" style="list-style-type: none;">
+                        <li>Game over. Click <a style="text-decoration:underline;line-height: 50px;" href="game-view/begin">here</a> to start over.</li>
                     </ul>
                 </div>
             </div>

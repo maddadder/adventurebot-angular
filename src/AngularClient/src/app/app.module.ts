@@ -6,6 +6,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http"; // I
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +36,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     MatButtonModule,
     MatToolbarModule,
     MatListModule,
+    MatSidenavModule,
+    MatIconModule,
     HttpClientModule,
     MsalModule.forRoot( new PublicClientApplication({
       auth: {
