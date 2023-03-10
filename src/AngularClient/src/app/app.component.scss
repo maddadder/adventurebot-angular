@@ -26,18 +26,21 @@ mat-sidenav {
 }
 
 .content {
-    height: calc(100vh - 98px);
     border-radius: 10px;
     margin: 16px;
     margin-left: 32px;
-    padding-top:40px;
-    padding-left:40px;
+    padding:30px;
     display: flex;
 
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: black;
+    line-height: 2.5rem;
 }
 
 mat-sidenav-container {
     height: calc(100vh - 65px);
+}
+.mat-icon {
+  transform: scale(2);
+  vertical-align:middle;
 }
