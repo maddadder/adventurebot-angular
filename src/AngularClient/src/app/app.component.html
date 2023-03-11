@@ -13,11 +13,15 @@
   
 <mat-sidenav-container>
   <mat-sidenav class="mat-elevation-z8" #sideNav mode="side">
-    <button mat-button class="menu-button" [routerLink]="['game-view/begin']">
+    <button mat-button class="menu-button" *ngIf="loginDisplay" [routerLink]="['game-play/begin']">
       <mat-icon>games</mat-icon>
       <span>&#160;Play Game</span>
     </button>
-    <button mat-button class="menu-button" [routerLink]="['profile']">
+    <button mat-button class="menu-button" *ngIf="loginDisplay" [routerLink]="['games/view/begin']">
+      <mat-icon>edit</mat-icon>
+      <span>&#160;Edit Game</span>
+    </button>
+    <button mat-button class="menu-button" *ngIf="loginDisplay" [routerLink]="['profile']">
       <mat-icon>person</mat-icon>
       <span>&#160;Profile</span>
     </button>

@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MsalGuard } from '@azure/msal-angular';
-import { GameViewComponent } from './game-view/game-view.component';
+import { GamePlayComponent } from './game-play/game-play.component';
+
+const gamesModule = () => import('./games/games.module').then(x => x.GamesModule);
 
 const routes: Routes = [
   {
@@ -12,10 +14,11 @@ const routes: Routes = [
     canActivate: [MsalGuard]
   },
   {
-    path: 'game-view/:id',
-    component: GameViewComponent,
+    path: 'game-play/:id',
+    component: GamePlayComponent,
     canActivate: [MsalGuard]
   },
+  { path: 'games', loadChildren: gamesModule },
   {
     path: '',
     component: HomeComponent

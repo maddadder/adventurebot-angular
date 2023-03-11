@@ -19,7 +19,7 @@ import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
 
 import { GameEntryService as GameEntryReadService} from './NSwagClientRead/services/GameEntryService';
 import { GameEntryService as GameEntryReadWriteService } from './NSwagClientReadWrite/services/GameEntryService';
-import { GameViewComponent } from './game-view/game-view.component';
+import { GamePlayComponent } from './game-play/game-play.component';
 import { environment } from './../environments/environment';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -29,7 +29,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     AppComponent,
     HomeComponent,
     ProfileComponent,
-    GameViewComponent
+    GamePlayComponent
   ],
   imports: [
     BrowserModule,
