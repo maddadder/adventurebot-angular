@@ -110,7 +110,26 @@ export class AddEditComponent {
 
   // convenience getter for easy access to form fields
   get f() { return this.form.controls; }
+  onCancel() {
+    this.router.navigateByUrl('/games/view/begin');
+  }
+  onDelete() {
+    if(confirm("Are you sure to delete this item")) {
+    
+      this.submitted = true;
 
+      this.submitting = true;
+      this.deleteGameEntry()
+          .subscribe({
+              next: () => {
+                  this.router.navigateByUrl('/games/view/begin');
+              },
+              error: error => {
+                  this.submitting = false;
+              }
+          });
+    }
+  }
   onSubmit() {
       this.submitted = true;
 
@@ -142,7 +161,10 @@ export class AddEditComponent {
       formData.description = formData.description.map(value => value[0]);
       
       return this.id
-          ? this.gameService.gameEntryPut("ge",this.id!, formData)
+          ? this.gameService.gameEntryPut("ge", this.id!, formData)
           : this.gameService.gameEntryPost("ge",formData);
+  }
+  private deleteGameEntry() {
+    return this.gameService.gameEntryDelete("ge",this.id!);
   }
 }

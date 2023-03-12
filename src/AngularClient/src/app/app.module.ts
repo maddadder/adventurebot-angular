@@ -54,13 +54,13 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     }), {
       interactionType: InteractionType.Redirect,
       authRequest: {
-        scopes: ['user.read']
+        scopes: [environment.graphScope]
         }
     }, {
       interactionType: InteractionType.Redirect, // MSAL Interceptor Configuration
       protectedResourceMap: new Map([ 
-        ['https://graph.microsoft.com/v1.0/me', ['user.read']],
-        ['https://leenetadventurebot.azurewebsites.net', ['api://0cd119e5-2fad-4aba-a39f-d04e3b26f4ae/user_impersonation']]
+        [environment.graphEnpoint, [environment.graphScope]],
+        [environment.adventurebotEndpoint, [environment.adventurebotScope]]
       ])
     })
   ],

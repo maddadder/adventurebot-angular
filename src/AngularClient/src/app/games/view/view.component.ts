@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { catchError, retry, throwError } from 'rxjs';
 import { gameEntry } from '../../NSwagClientReadWrite';
 import { GameEntryService as GameEntryReadWriteService } from '../../NSwagClientReadWrite/services/GameEntryService';
