@@ -31,6 +31,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 1. https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular-auth-code
 2. https://jasonwatmore.com/post/2022/12/21/angular-14-crud-example-with-reactive-forms
+3. https://medium.com/medialesson/group-authorization-in-angular-with-azure-ad-and-app-roles-1120c4b91163
+
 
 ## API Setup
 1. This app assumes you followed all the steps in https://github.com/maddadder/adventurebot

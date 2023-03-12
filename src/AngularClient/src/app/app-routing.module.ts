@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MsalGuard } from '@azure/msal-angular';
 import { GamePlayComponent } from './game-play/game-play.component';
+import { RoleGuard } from './services/role-guard';
 
 const gamesModule = () => import('./games/games.module').then(x => x.GamesModule);
 
@@ -16,9 +17,18 @@ const routes: Routes = [
   {
     path: 'game-play/:id',
     component: GamePlayComponent,
-    canActivate: [MsalGuard]
+    data: {
+      roles: [ 'game.manage' ]
+    },
+    canActivate: [ MsalGuard, RoleGuard ]
   },
-  { path: 'games', loadChildren: gamesModule },
+  { 
+    path: 'games', 
+    loadChildren: gamesModule,
+    data: {
+      roles: [ 'game.manage' ]
+    },
+    canActivate: [ MsalGuard, RoleGuard ] },
   {
     path: '',
     component: HomeComponent
