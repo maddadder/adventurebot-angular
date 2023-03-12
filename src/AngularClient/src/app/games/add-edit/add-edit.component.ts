@@ -18,6 +18,7 @@ export class AddEditComponent {
   loading = false;
   submitting = false;
   submitted = false;
+  model: gameEntry;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -86,6 +87,7 @@ export class AddEditComponent {
           this.gameService.gameEntryGet("ge",this.id)
               .pipe(first())
               .subscribe(x => {
+                  this.model = x;
                   this.form.patchValue({
                     id: x.id,
                     __T:x.__T,
@@ -111,7 +113,7 @@ export class AddEditComponent {
   // convenience getter for easy access to form fields
   get f() { return this.form.controls; }
   onCancel() {
-    this.router.navigateByUrl('/games/view/begin');
+    this.router.navigateByUrl('/games/view/' + this.model.name);
   }
   onDelete() {
     if(confirm("Are you sure to delete this item")) {
@@ -143,7 +145,7 @@ export class AddEditComponent {
           .pipe(first())
           .subscribe({
               next: () => {
-                  this.router.navigateByUrl('/games/view/begin');
+                  this.router.navigateByUrl('/games/view/' + this.model.name);
               },
               error: error => {
                   this.submitting = false;
@@ -160,9 +162,15 @@ export class AddEditComponent {
       //e.g. description:["0":"myvalue"] to description:["myvalue"]
       formData.description = formData.description.map(value => value[0]);
       
-      return this.id
-          ? this.gameService.gameEntryPut("ge", this.id!, formData)
-          : this.gameService.gameEntryPost("ge",formData);
+      if(this.id)
+      {
+        return this.gameService.gameEntryPut("ge", this.id!, formData);
+      }
+      else
+      {
+        this.model = formData;
+        return this.gameService.gameEntryPost("ge",formData);
+      }
   }
   private deleteGameEntry() {
     return this.gameService.gameEntryDelete("ge",this.id!);
