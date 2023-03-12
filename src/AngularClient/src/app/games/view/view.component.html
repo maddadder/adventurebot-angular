@@ -3,6 +3,11 @@
         <div class="col-xs-12 col-md-12">
             <div *ngIf="_gameEntries.length">
                 <div *ngFor="let _gameEntry of _gameEntries">
+                    <div>
+                        <a href='games/edit/{{_gameEntry.id}}' class="btn btn-outline-dark" role="button">
+                            Edit
+                        </a>
+                    </div>
                     <ul style="margin:0px;padding:0px;list-style-type: none;">
                         <li *ngFor="let desc of _gameEntry.description">{{desc}}</li>
                     </ul>
