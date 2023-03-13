@@ -18,11 +18,11 @@
                     <b>Option(s):</b>
                     <ul *ngIf="_gameEntry.options.length" style="list-style-type: none;">
                         <li *ngFor="let gameOption of _gameEntry.options">
-                            <a mat-raised-button color="primary" href="games/view/{{gameOption.next}}" role="button">{{gameOption.description}}</a>
+                            <a href="games/view/{{gameOption.next}}" role="button">{{gameOption.description}}</a>
                         </li>
                     </ul>
                     <ul *ngIf="!_gameEntry.options.length" style="list-style-type: none;">
-                        <li>Game over. Click <a mat-raised-button color="primary" href="games/view/begin">here</a> to start over.</li>
+                        <li>Game over. Click <a href="games/view/begin">here</a> to start over.</li>
                     </ul>
                 </div>
             </div>
