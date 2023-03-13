@@ -4,10 +4,10 @@
             <div *ngIf="_gameEntries.length">
                 <div *ngFor="let _gameEntry of _gameEntries">
                     <div>
-                        <a href='games/edit/{{_gameEntry.id}}' class="btn btn-outline-dark" role="button">
+                        <a mat-raised-button color="primary" href='games/edit/{{_gameEntry.id}}' role="button">
                             Edit
                         </a> | 
-                        <a href='games/add' class="btn btn-outline-dark" role="button">
+                        <a mat-raised-button color="primary" href='games/add' role="button">
                             Add
                         </a>
                     </div>
@@ -16,13 +16,13 @@
                     </ul>
                     <br/>
                     <b>Option(s):</b>
-                    <ul *ngIf="_gameEntry.options.length">
+                    <ul *ngIf="_gameEntry.options.length" style="list-style-type: none;">
                         <li *ngFor="let gameOption of _gameEntry.options">
-                            <a style="text-decoration:underline;line-height: 50px;" href="games/view/{{gameOption.next}}" role="button">{{gameOption.description}}</a>
+                            <a mat-raised-button color="primary" href="games/view/{{gameOption.next}}" role="button">{{gameOption.description}}</a>
                         </li>
                     </ul>
                     <ul *ngIf="!_gameEntry.options.length" style="list-style-type: none;">
-                        <li>Game over. Click <a style="text-decoration:underline;line-height: 50px;" href="games/view/begin">here</a> to start over.</li>
+                        <li>Game over. Click <a mat-raised-button color="primary" href="games/view/begin">here</a> to start over.</li>
                     </ul>
                 </div>
             </div>

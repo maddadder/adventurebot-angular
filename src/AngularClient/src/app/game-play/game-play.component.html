@@ -8,13 +8,13 @@
                     </ul>
                     <br/>
                     <b>Option(s):</b>
-                    <ul *ngIf="_gameEntry.options.length">
+                    <ul *ngIf="_gameEntry.options.length" style="list-style-type: none;">
                         <li *ngFor="let gameOption of _gameEntry.options">
-                            <a style="text-decoration:underline;line-height: 50px;" href="game-view/{{gameOption.next}}" role="button">{{gameOption.description}}</a>
+                            <a mat-raised-button color="primary" href="game-play/{{gameOption.next}}" role="button">{{gameOption.description}}</a>
                         </li>
                     </ul>
                     <ul *ngIf="!_gameEntry.options.length" style="list-style-type: none;">
-                        <li>Game over. Click <a style="text-decoration:underline;line-height: 50px;" href="game-view/begin">here</a> to start over.</li>
+                        <li>Game over. Click <a mat-raised-button color="primary" href="game-play/begin">here</a> to start over.</li>
                     </ul>
                 </div>
             </div>

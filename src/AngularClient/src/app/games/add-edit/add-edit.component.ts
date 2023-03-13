@@ -160,8 +160,10 @@ export class AddEditComponent {
       //convert the indexed item caused by the form
       //convert it into a non-index array
       //e.g. description:["0":"myvalue"] to description:["myvalue"]
-      formData.description = formData.description.map(value => value[0]);
-      
+      formData.description = Object.keys(formData.description).map(function(i) {
+        return formData.description[i][i];
+      });
+
       if(this.id)
       {
         return this.gameService.gameEntryPut("ge", this.id!, formData);
