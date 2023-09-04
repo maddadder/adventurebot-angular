@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, filter, map, retry } from 'rxjs/operators';
-import { gameEntry } from '../NSwagClientReadWrite';
-import { GameEntryService as GameEntryReadWriteService } from '../NSwagClientReadWrite/services/GameEntryService';
+import { gameEntry } from '../NSwagClientRead';
+import { GameEntryService as GameEntryReadService } from '../NSwagClientRead/services/GameEntryService';
 import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 export class GamePlayComponent implements OnInit, OnDestroy {
   
   constructor(private _Activatedroute:ActivatedRoute,
-    private readonly gameEntryService: GameEntryReadWriteService) { }
+    private readonly gameEntryService: GameEntryReadService) { }
   sub;
   _gameEntries: gameEntry[] = []
   pageName:string;
