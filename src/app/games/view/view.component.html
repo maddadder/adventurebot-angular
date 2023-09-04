@@ -16,12 +16,12 @@
                     </ul>
                     <br/>
                     <b>Option(s):</b>
-                    <ul *ngIf="_gameEntry.options.length" style="list-style-type: none;">
+                    <ul *ngIf="_gameEntry.options.length">
                         <li *ngFor="let gameOption of _gameEntry.options">
                             <a href="games/view/{{gameOption.next}}" role="button">{{gameOption.description}}</a>
                         </li>
                     </ul>
-                    <ul *ngIf="!_gameEntry.options.length" style="list-style-type: none;">
+                    <ul *ngIf="!_gameEntry.options.length">
                         <li>Game over. Click <a href="games/view/begin">here</a> to start over.</li>
                     </ul>
                 </div>
