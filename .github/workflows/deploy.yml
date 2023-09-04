@@ -11,9 +11,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          submodules: recursive
-          path: src/AngularClient
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -21,9 +19,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Change directory to Angular app
-        run: cd src/AngularClient
 
       - name: Build
         run: npm run build -- --prod
