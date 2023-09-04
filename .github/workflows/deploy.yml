@@ -27,6 +27,5 @@ jobs:
         run: |
           git config user.name "maddadder"
           git config user.email "rleecharlie@gmail.com"
-          git add .
-          git commit -m "Deploy to GitHub Pages"
-          git push -u origin master
+          git remote add deploy https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
+          git push --force deploy master:gh-pages
