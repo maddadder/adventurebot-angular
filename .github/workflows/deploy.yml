@@ -20,13 +20,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Change directory to Angular app
+        run: cd src/AngularClient
+
       - name: Build
         run: npm run build -- --prod
 
       - name: Deploy to GitHub Pages
         run: |
           git config user.name "GitHub Actions"
-          git config user.email "rleecharlie@gmail.com"
+          git config user.email "<youremail>@example.com"
           git add .
           git commit -m "Deploy to GitHub Pages"
           git push -u origin master
