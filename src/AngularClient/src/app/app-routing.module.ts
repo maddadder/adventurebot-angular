@@ -16,11 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'game-play/:id',
-    component: GamePlayComponent,
-    data: {
-      roles: [ 'game.manage' ]
-    },
-    canActivate: [ MsalGuard, RoleGuard ]
+    component: GamePlayComponent
   },
   { 
     path: 'games', 
